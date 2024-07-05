@@ -85,3 +85,41 @@ Como criar o Request com artisan no Laravel 11
 php artisan make:request NomeDoRequest
 php artisan make:request UserRequest
 ```
+## Criar um controllers
+
+```
+php artisan make:controller UsuarioController --resource
+php artisan make:controller CategoriaController --resource
+php artisan make:controller LivroController --resource
+```
+## Criar rotas para os controllers
+
+```
+Route::resource('usuarios',UsuarioController::class);
+Route::resource('categorias',CategoriaController::class);
+Route::resource('livros',LivroController::class);
+```
+Consulatr a rotas disponivels no resorces
+```
+php artisan route:list
+```
+## Manipular migration
+
+criar migration
+```
+php artisan make:migration livros --create=tb_livros
+php artisan make:migration categorias --create=tb_categorias
+php artisan make:migration fornecedores --create=tb_fornecedores
+```
+Executar as migration
+```
+php artisan migrate
+```
+desfazer o ultimo migration
+```
+php artisan migrate:rollback
+```
+desfazer todas as migration
+```
+php artisan migrate:reset
+```
